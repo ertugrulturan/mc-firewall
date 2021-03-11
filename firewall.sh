@@ -24,6 +24,7 @@ IPTABLES="/sbin/iptables"
 if ! [ $(id -u) = 0 ]; then
    echo "Sadece root kullanicida calistirin!"
    exit 1
+fi
 # Iptables Bazlı Minecraft Özel Kurallar.
 # ------------------------------------------------------------------------------
 $IPTABLES -A INPUT -p udp -j DROP
