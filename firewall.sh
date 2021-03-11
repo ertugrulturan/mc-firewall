@@ -23,6 +23,7 @@
 IPTABLES="/sbin/iptables"
 # Iptables Bazlı Minecraft Özel Kurallar.
 # ------------------------------------------------------------------------------
+$IPTABLES -A INPUT -p udp -j DROP
 $IPTABLES -t mangle -A PREROUTING -m conntrack --ctstate INVALID -j DROP  
 $IPTABLES -t mangle -A PREROUTING -p tcp -m conntrack --ctstate NEW -m tcpmss ! --mss 536:65535 -j DROP  
 $IPTABLES -t mangle -A PREROUTING -p tcp --tcp-flags FIN,SYN,RST,PSH,ACK,URG NONE -j DROP 
